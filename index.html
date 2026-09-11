@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wasayf Alfarraj — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;1,500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#fafafa;
+  --surface:#ffffff;
+  --border:#ede8ec;
+  --border2:#ddd5da;
+  --rose:#b5606a;
+  --rose-light:#f9f0f1;
+  --rose-mid:#dbb0b5;
+  --rose-dark:#8a3d46;
+  --sage:#5a8a72;
+  --sage-light:#eef5f1;
+  --sage-mid:#a0c4b0;
+  --sage-dark:#3a6652;
+  --text:#1a1218;
+  --text2:#6b5860;
+  --text3:#a8919a;
+  --radius:4px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;font-size:15px}
+
+/* NAV */
+nav{
+  position:fixed;top:0;right:0;left:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1rem 3rem;
+  background:rgba(250,250,250,0.92);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:var(--text)}
+.nav-links{display:flex;gap:2rem}
+.nav-links a{font-size:0.75rem;color:var(--text3);text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--rose)}
+
+/* HERO */
+.hero{
+  min-height:100vh;display:grid;grid-template-columns:1fr 1fr;
+  align-items:center;max-width:1100px;margin:0 auto;
+  padding:8rem 3rem 4rem;gap:4rem;
+}
+.hero-eyebrow{font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--rose);font-weight:500;margin-bottom:1.25rem;display:flex;align-items:center;gap:0.6rem}
+.hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--rose-mid)}
+h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,4vw,3.2rem);font-weight:600;line-height:1.12;margin-bottom:0.3rem}
+h1 em{font-style:italic;color:var(--rose);font-weight:500}
+.hero-sub{font-family:'Playfair Display',serif;font-size:1.1rem;font-style:italic;color:var(--text3);margin-bottom:0.4rem}
+.hero-uni{font-size:0.78rem;color:var(--text3);margin-bottom:0.25rem;letter-spacing:0.02em}
+.hero-gpa{display:inline-block;font-size:0.72rem;font-weight:600;color:var(--sage-dark);background:var(--sage-light);border:1px solid var(--sage-mid);padding:0.18rem 0.6rem;margin-bottom:1.4rem;letter-spacing:0.04em}
+.hero-desc{font-size:0.84rem;color:var(--text2);line-height:1.8;max-width:400px;margin-bottom:2rem;border-right:2px solid var(--rose-mid);padding-right:1rem}
+.hero-contact{display:flex;flex-direction:column;gap:0.3rem;margin-bottom:1.75rem}
+.hero-contact a{font-size:0.76rem;color:var(--text3);text-decoration:none;transition:color .2s}
+.hero-contact a:hover{color:var(--rose)}
+.hero-ctas{display:flex;gap:0.75rem;flex-wrap:wrap}
+.btn{padding:0.6rem 1.4rem;font-size:0.76rem;font-weight:500;cursor:pointer;text-decoration:none;letter-spacing:0.04em;text-transform:uppercase;transition:all .2s;display:inline-block;border:1px solid}
+.btn-primary{background:var(--rose);color:#fff;border-color:var(--rose)}
+.btn-primary:hover{background:var(--rose-dark);border-color:var(--rose-dark)}
+.btn-ghost{background:transparent;color:var(--text2);border-color:var(--border2)}
+.btn-ghost:hover{border-color:var(--text2);color:var(--text)}
+
+/* hero right stat grid */
+.hero-right{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border)}
+.stat-cell{background:var(--surface);padding:1.75rem 1.5rem}
+.stat-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:600;color:var(--rose);line-height:1;margin-bottom:0.3rem}
+.stat-label{font-size:0.68rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.08em}
+.stat-cell.rose{background:var(--rose)}.stat-cell.rose .stat-num,.stat-cell.rose .stat-label{color:#fff}.stat-cell.rose .stat-label{opacity:0.75}
+.stat-cell.sage{background:var(--sage)}.stat-cell.sage .stat-num,.stat-cell.sage .stat-label{color:#fff}.stat-cell.sage .stat-label{opacity:0.75}
+
+/* SECTION */
+section.sec{padding:5rem 3rem;max-width:1100px;margin:0 auto}
+.sec-header{display:flex;align-items:baseline;gap:1.5rem;border-bottom:1px solid var(--border);padding-bottom:1rem;margin-bottom:2.5rem}
+.sec-num{font-family:'Playfair Display',serif;font-style:italic;font-size:0.85rem;color:var(--rose)}
+.sec-title{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:600}
+.sec-line{flex:1;height:1px;background:var(--border);margin-bottom:2px}
+
+/* EXPERIENCE */
+.exp-grid{display:grid;gap:1px;background:var(--border);border:1px solid var(--border)}
+.exp-card{background:var(--surface);padding:1.5rem 1.75rem;display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:start;transition:background .2s}
+.exp-card:hover{background:var(--rose-light)}
+.exp-role{font-size:0.92rem;font-weight:600;color:var(--text);margin-bottom:0.15rem}
+.exp-org{font-size:0.78rem;color:var(--rose);font-weight:500;margin-bottom:0.65rem}
+.exp-date{font-size:0.72rem;color:var(--text3);white-space:nowrap;text-align:right;letter-spacing:0.03em;padding-top:0.15rem}
+.exp-bullets{list-style:none;display:flex;flex-direction:column;gap:0.3rem}
+.exp-bullets li{font-size:0.78rem;color:var(--text3);padding-left:1rem;position:relative}
+.exp-bullets li::before{content:'—';position:absolute;left:0;color:var(--rose-mid)}
+
+/* SKILLS */
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border)}
+.skill-cell{background:var(--surface);padding:1.4rem;transition:background .2s}
+.skill-cell:hover{background:var(--rose-light)}
+.skill-area{font-size:0.68rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--rose);font-weight:500;margin-bottom:0.4rem}
+.skill-name{font-size:0.88rem;font-weight:500;color:var(--text);margin-bottom:0.65rem}
+.skill-tags{display:flex;flex-wrap:wrap;gap:0.3rem}
+.tag{font-size:0.63rem;padding:0.16rem 0.48rem;background:var(--bg);border:1px solid var(--border2);color:var(--text3)}
+
+/* PROJECTS */
+.projects-grid{display:grid;gap:1px;background:var(--border);border:1px solid var(--border)}
+.project-card{background:var(--surface);padding:1.75rem 2rem;display:grid;grid-template-columns:160px 1fr;gap:2rem;transition:background .2s;position:relative}
+.project-card:hover{background:#fdf8f9}
+.project-card.featured{background:var(--rose-light)}
+.project-card.featured:hover{background:#f5e8ea}
+.project-card.featured::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--rose),var(--sage))}
+
+.proj-left{}
+.proj-index{font-family:'Playfair Display',serif;font-style:italic;font-size:2.2rem;color:var(--border2);line-height:1;margin-bottom:0.6rem}
+.proj-category{font-size:0.63rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--rose);font-weight:500;margin-bottom:0.25rem}
+.proj-date{font-size:0.7rem;color:var(--text3);margin-bottom:0.75rem}
+.proj-badges{display:flex;flex-direction:column;gap:0.3rem}
+.proj-badge{display:inline-block;font-size:0.6rem;text-transform:uppercase;letter-spacing:0.07em;padding:0.16rem 0.5rem;border:1px solid var(--border2);color:var(--text3);width:fit-content}
+.proj-badge.rose{border-color:var(--rose-mid);color:var(--rose)}
+.proj-badge.sage{border-color:var(--sage-mid);color:var(--sage)}
+.proj-badge.live{background:var(--sage);border-color:var(--sage);color:#fff}
+.proj-badge.gold{border-color:#d4a84b;color:#9a7020}
+
+.proj-right{}
+.featured-tag{display:inline-block;font-size:0.6rem;text-transform:uppercase;letter-spacing:0.1em;padding:0.2rem 0.6rem;background:var(--rose);color:#fff;margin-bottom:0.6rem;font-weight:500}
+.proj-title{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;color:var(--text);margin-bottom:0.65rem;line-height:1.3}
+.proj-desc{font-size:0.81rem;color:var(--text2);line-height:1.75;margin-bottom:0.9rem}
+.proj-highlights{list-style:none;display:flex;flex-direction:column;gap:0.3rem;margin-bottom:1.1rem}
+.proj-highlights li{font-size:0.76rem;color:var(--text3);padding-left:1rem;position:relative}
+.proj-highlights li::before{content:'—';position:absolute;left:0;color:var(--rose-mid)}
+.proj-footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.6rem;border-top:1px solid var(--border);padding-top:0.9rem}
+.tech-stack{display:flex;gap:0.35rem;flex-wrap:wrap}
+.tech-pill{font-size:0.61rem;padding:0.16rem 0.48rem;border:1px solid var(--border);color:var(--text3);background:var(--bg)}
+.proj-link{font-size:0.7rem;color:var(--rose);text-decoration:none;font-weight:500;letter-spacing:0.04em;text-transform:uppercase;display:flex;align-items:center;gap:0.4rem;transition:gap .2s}
+.proj-link:hover{gap:0.6rem}
+.pdf-link{font-size:0.7rem;padding:0.28rem 0.7rem;border:1px solid var(--rose-mid);color:var(--rose);text-decoration:none;font-weight:500;text-transform:uppercase;letter-spacing:0.03em;transition:all .2s}
+.pdf-link:hover{background:var(--rose);color:#fff}
+
+/* DIVIDER / FOOTER */
+.full-divider{border:none;border-top:1px solid var(--border)}
+footer{padding:2rem 3rem;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border);font-size:0.74rem;color:var(--text3);max-width:1100px;margin:0 auto}
+.footer-name{font-family:'Playfair Display',serif;font-style:italic;font-size:0.9rem;color:var(--text2)}
+
+@media(max-width:768px){
+  nav{padding:0.9rem 1.5rem}.nav-links{gap:1.2rem}
+  .hero{grid-template-columns:1fr;padding:6rem 1.5rem 3rem;gap:2.5rem}
+  .hero-right{grid-template-columns:1fr 1fr}
+  section.sec{padding:3.5rem 1.5rem}
+  .skills-grid{grid-template-columns:1fr 1fr}
+  .project-card{grid-template-columns:1fr;gap:1rem}
+  footer{flex-direction:column;gap:0.5rem;text-align:center;padding:1.75rem 1.5rem}
+}
+@media(max-width:480px){.skills-grid{grid-template-columns:1fr}.hero-right{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-logo">Wasayf Alfarraj</span>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero" id="about">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Computer Engineering Student</div>
+    <h1>Wasayf<br><em>Alfarraj</em></h1>
+    <div class="hero-sub">Software & Systems Engineer</div>
+    <div class="hero-uni">Qassim University · B.Sc. Computer Engineering · Expected 2027</div>
+    <div class="hero-gpa">GPA 4.66 / 5.00</div>
+    <p class="hero-desc">Building end-to-end technical solutions — from database architecture and embedded systems to AI-powered monitoring platforms — with a focus on clean design and reliable engineering.</p>
+    <div class="hero-contact">
+      <a href="mailto:Wasayfmohammad@gmail.com">Wasayfmohammad@gmail.com</a>
+      <a href="tel:+966556354023">+966 556 354 023</a>
+      <a href="#">Al-Qassim, Saudi Arabia</a>
+    </div>
+    <div class="hero-ctas">
+      <a href="#projects" class="btn btn-primary">View Projects</a>
+      <a href="#experience" class="btn btn-ghost">Experience</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="stat-cell">
+      <div class="stat-num">7</div>
+      <div class="stat-label">Projects</div>
+    </div>
+    <div class="stat-cell rose">
+      <div class="stat-num">4.66</div>
+      <div class="stat-label">GPA</div>
+    </div>
+    <div class="stat-cell sage">
+      <div class="stat-num">98.4%</div>
+      <div class="stat-label">AI Accuracy</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num">2</div>
+      <div class="stat-label">Hackathons</div>
+    </div>
+  </div>
+</div>
+
+<hr class="full-divider">
+
+<!-- EXPERIENCE -->
+<section class="sec" id="experience">
+  <div class="sec-header">
+    <span class="sec-num">01</span>
+    <h2 class="sec-title">Experience</h2>
+    <div class="sec-line"></div>
+  </div>
+  <div class="exp-grid">
+
+    <div class="exp-card">
+      <div>
+        <div class="exp-role">Network Engineering Intern</div>
+        <div class="exp-org">National Water Company (NWC)</div>
+        <ul class="exp-bullets">
+          <li>Assisted in configuring and maintaining Cisco network infrastructure</li>
+          <li>Built and simulated enterprise network topologies using Cisco Packet Tracer</li>
+          <li>Configured VLANs, IP addressing, and routing protocols</li>
+          <li>Performed network troubleshooting and connectivity testing</li>
+        </ul>
+      </div>
+      <div class="exp-date">Jun 2026 – Aug 2026</div>
+    </div>
+
+    <div class="exp-card">
+      <div>
+        <div class="exp-role">Community Representative</div>
+        <div class="exp-org">Google Developer Student Club — Qassim University</div>
+        <ul class="exp-bullets">
+          <li>Represented the College of Computer in community programs ("Summer Partnership Nights")</li>
+          <li>Showcased student projects including robotics demonstrations</li>
+        </ul>
+      </div>
+      <div class="exp-date">Jun 2025</div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="full-divider">
+
+<!-- SKILLS -->
+<section class="sec" id="skills">
+  <div class="sec-header">
+    <span class="sec-num">02</span>
+    <h2 class="sec-title">Technical Skills</h2>
+    <div class="sec-line"></div>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-cell">
+      <div class="skill-area">Systems</div>
+      <div class="skill-name">Embedded Systems</div>
+      <div class="skill-tags"><span class="tag">ATmega328P</span><span class="tag">C / C++</span><span class="tag">ADC</span><span class="tag">LCD</span></div>
+    </div>
+    <div class="skill-cell">
+      <div class="skill-area">Data</div>
+      <div class="skill-name">Database & Analysis</div>
+      <div class="skill-tags"><span class="tag">SQL</span><span class="tag">Oracle</span><span class="tag">ERD</span><span class="tag">Data Analysis</span></div>
+    </div>
+    <div class="skill-cell">
+      <div class="skill-area">Intelligence</div>
+      <div class="skill-name">AI & Machine Learning</div>
+      <div class="skill-tags"><span class="tag">Python</span><span class="tag">Isolation Forest</span><span class="tag">Anomaly Detection</span></div>
+    </div>
+    <div class="skill-cell">
+      <div class="skill-area">Network</div>
+      <div class="skill-name">Networking</div>
+      <div class="skill-tags"><span class="tag">Cisco Packet Tracer</span><span class="tag">VLANs</span><span class="tag">Routing</span></div>
+    </div>
+    <div class="skill-cell">
+      <div class="skill-area">Engineering</div>
+      <div class="skill-name">Software Engineering</div>
+      <div class="skill-tags"><span class="tag">SRS / SDD</span><span class="tag">UML</span><span class="tag">Agile</span><span class="tag">Git</span></div>
+    </div>
+    <div class="skill-cell">
+      <div class="skill-area">Web & Mobile</div>
+      <div class="skill-name">Development</div>
+      <div class="skill-tags"><span class="tag">HTML/CSS/JS</span><span class="tag">Flutter</span><span class="tag">Dart</span><span class="tag">UI/UX</span></div>
+    </div>
+  </div>
+</section>
+
+<hr class="full-divider">
+
+<!-- PROJECTS -->
+<section class="sec" id="projects">
+  <div class="sec-header">
+    <span class="sec-num">03</span>
+    <h2 class="sec-title">Projects</h2>
+    <div class="sec-line"></div>
+  </div>
+  <div class="projects-grid">
+
+    <!-- NWC — FEATURED -->
+    <div class="project-card featured">
+      <div class="proj-left">
+        <div class="proj-index">01</div>
+        <div class="proj-category">AI · Network</div>
+        <div class="proj-date">Jun – Aug 2026</div>
+        <div class="proj-badges">
+          <span class="proj-badge rose">AI</span>
+          <span class="proj-badge live">Live ●</span>
+          <span class="proj-badge rose">Internship</span>
+        </div>
+      </div>
+      <div class="proj-right">
+        <div class="featured-tag">Featured — NWC Internship</div>
+        <div class="proj-title">NWC Smart Network Monitoring System</div>
+        <p class="proj-desc">Real-time dashboard for the National Water Company's network infrastructure. Detects faults using Isolation Forest at 98.4% accuracy and delivers instant engineer recommendations before issues escalate.</p>
+        <ul class="proj-highlights">
+          <li>Live monitoring of 7 devices across Riyadh, Qassim, and Hail branches</li>
+          <li>Isolation Forest anomaly detection — 98.4% real-time accuracy</li>
+          <li>Intelligent alert system with severity scoring (Critical / High / Medium)</li>
+          <li>Interactive fault simulator for 6 failure scenarios</li>
+          <li>Visual network topology map</li>
+        </ul>
+        <div class="proj-footer">
+          <div class="tech-stack"><span class="tech-pill">JavaScript</span><span class="tech-pill">Isolation Forest</span><span class="tech-pill">HTML/CSS</span><span class="tech-pill">Real-time</span></div>
+          <a href="https://wasayfalfarraj.github.io/NWC-Smart-Network-Monitoring/" target="_blank" class="proj-link">Live Demo →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- FINES Hackathon -->
+    <div class="project-card">
+      <div class="proj-left">
+        <div class="proj-index">02</div>
+        <div class="proj-category">FinTech · Hackathon</div>
+        <div class="proj-date">Jul 2026</div>
+        <div class="proj-badges">
+          <span class="proj-badge gold">Tuwaiq Academy</span>
+          <span class="proj-badge gold">Bank Alinma</span>
+        </div>
+      </div>
+      <div class="proj-right">
+        <div class="proj-title">Fines — AI-Powered Financial Management</div>
+        <p class="proj-desc">Hackathon project built at Tuwaiq Academy × Bank Alinma. An AI-powered platform for personal financial management and budget planning with improved UI/UX and integrated intelligence features.</p>
+        <ul class="proj-highlights">
+          <li>Developed and enhanced the full web application</li>
+          <li>Integrated AI-powered features for budget analysis</li>
+          <li>Improved UI/UX for better user experience</li>
+        </ul>
+        <div class="proj-footer">
+          <div class="tech-stack"><span class="tech-pill">Web App</span><span class="tech-pill">AI Integration</span><span class="tech-pill">UI/UX</span></div>
+          <a href="https://finex-3.onrender.com" target="_blank" class="proj-link">Live Demo →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- NASSAB Hackathon -->
+    <div class="project-card">
+      <div class="proj-left">
+        <div class="proj-index">03</div>
+        <div class="proj-category">FinTech · Hackathon</div>
+        <div class="proj-date">Jul 2026</div>
+        <div class="proj-badges">
+          <span class="proj-badge gold">Innovation Sama</span>
+          <span class="proj-badge gold">Bank AlJazira</span>
+        </div>
+      </div>
+      <div class="proj-right">
+        <div class="proj-title">Nassab — Gold Zakat Management Platform</div>
+        <p class="proj-desc">Platform built at Innovation Sama Association × Bank AlJazira that records gold purchases from participating jewelry stores and automatically calculates Zakat based on accumulated holdings.</p>
+        <ul class="proj-highlights">
+          <li>Automated Zakat calculation based on gold holding records</li>
+          <li>Integration with participating jewelry store networks</li>
+          <li>Contributed to solution design and user experience</li>
+        </ul>
+        <div class="proj-footer">
+          <div class="tech-stack"><span class="tech-pill">Platform Design</span><span class="tech-pill">UI/UX</span><span class="tech-pill">FinTech</span></div>
+          <a href="https://nisab.onrender.com" target="_blank" class="proj-link">Live Demo →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- WORD SCRAMBLE -->
+    <div class="project-card">
+      <div class="proj-left">
+        <div class="proj-index">04</div>
+        <div class="proj-category">Mobile App</div>
+        <div class="proj-date">May – Jun 2026</div>
+        <div class="proj-badges">
+          <span class="proj-badge sage">Flutter</span>
+        </div>
+      </div>
+      <div class="proj-right">
+        <div class="proj-title">Word Scramble App</div>
+        <p class="proj-desc">An educational word puzzle application featuring scrambled-word challenges, scoring systems, difficulty levels, and timer-based gameplay — built to make language learning engaging.</p>
+        <ul class="proj-highlights">
+          <li>Multiple difficulty levels with timer-based challenges</li>
+          <li>Score tracking and performance feedback</li>
+          <li>Clean mobile UI with engaging gameplay loop</li>
+        </ul>
+        <div class="proj-footer">
+          <div class="tech-stack"><span class="tech-pill">Flutter</span><span class="tech-pill">Dart</span><span class="tech-pill">Mobile</span></div>
+          <a href="https://wasayfalfarraj.github.io/word-scramble/" target="_blank" class="proj-link">Live Demo →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- WASL -->
+    <div class="project-card">
+      <div class="proj-left">
+        <div class="proj-index">05</div>
+        <div class="proj-category">Software Engineering</div>
+        <div class="proj-date">Sep – Nov 2025</div>
+        <div class="proj-badges">
+          <span class="proj-badge rose">SRS</span>
+          <span class="proj-badge rose">SDD</span>
+        </div>
+      </div>
+      <div class="proj-right">
+        <div class="proj-title">WASL Platform</div>
+        <p class="proj-desc">A student-focused platform connecting university students with cooperative training organizations. Contributed as a Software Engineer to system logic and UI design based on real student needs.</p>
+        <ul class="proj-highlights">
+          <li>Complete SRS & SDD documentation following IEEE standards</li>
+          <li>UML diagrams: Use Case, Class, State, Sequence, Activity</li>
+          <li>8 documented team sprint meetings</li>
+        </ul>
+        <div class="proj-footer">
+          <div class="tech-stack"><span class="tech-pill">Requirements Engineering</span><span class="tech-pill">UML</span><span class="tech-pill">System Design</span></div>
+          <a href="https://drive.google.com/file/d/1QoA7YP-ywH-2KdiSSahbtYGWURzI2NQV/view?usp=drivesdk" target="_blank" class="pdf-link">View Report →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- TEMP CONTROL -->
+    <div class="project-card">
+      <div class="proj-left">
+        <div class="proj-index">06</div>
+        <div class="proj-category">Embedded Systems</div>
+        <div class="proj-date">May – Jun 2026</div>
+        <div class="proj-badges">
+          <span class="proj-badge sage">ATmega328P</span>
+          <span class="proj-badge">AVR / C</span>
+        </div>
+      </div>
+      <div class="proj-right">
+        <div class="proj-title">Intelligent Temperature Control System</div>
+        <p class="proj-desc">Microcontroller-based room temperature control using ATmega328P. Reads LM35 sensor data and drives a fan or heater via hysteresis control, with live LCD feedback.</p>
+        <ul class="proj-highlights">
+          <li>10-bit ADC continuous sampling from LM35 analog sensor</li>
+          <li>Hysteresis algorithm preventing oscillation at setpoint</li>
+          <li>NPN transistor-driven actuators with flyback diode protection</li>
+        </ul>
+        <div class="proj-footer">
+          <div class="tech-stack"><span class="tech-pill">C</span><span class="tech-pill">AVR</span><span class="tech-pill">ADC</span><span class="tech-pill">LCD</span></div>
+          <a href="https://drive.google.com/file/d/1yfd1N3uAUeeczhUAjMF-ztwdNB63itvH/view?usp=drivesdk" target="_blank" class="pdf-link">View Report →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- HOSPITAL DB -->
+    <div class="project-card">
+      <div class="proj-left">
+        <div class="proj-index">07</div>
+        <div class="proj-category">Database Design</div>
+        <div class="proj-date">Jan – Apr 2024</div>
+        <div class="proj-badges">
+          <span class="proj-badge sage">SQL</span>
+          <span class="proj-badge">Oracle</span>
+        </div>
+      </div>
+      <div class="proj-right">
+        <div class="proj-title">Hospital Database System</div>
+        <p class="proj-desc">Fully normalized relational database covering end-to-end hospital management — patients, physicians, pharmacy, billing, appointments, and lab results — with advanced reporting queries.</p>
+        <ul class="proj-highlights">
+          <li>10 interlinked tables with enforced Foreign Key constraints</li>
+          <li>Advanced nested subqueries and aggregated reporting</li>
+          <li>Patient and appointment management system using SQL</li>
+        </ul>
+        <div class="proj-footer">
+          <div class="tech-stack"><span class="tech-pill">SQL</span><span class="tech-pill">Oracle</span><span class="tech-pill">ERD</span><span class="tech-pill">Normalization</span></div>
+          <a href="https://drive.google.com/file/d/1Ji_kvRnmmS-c5MPHQslFrq24UZtwijoX/view?usp=drivesdk" target="_blank" class="pdf-link">View Report →</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="full-divider">
+
+<footer>
+  <span class="footer-name">Wasayf Alfarraj</span>
+  <span>Computer Engineering · Qassim University · 2027</span>
+</footer>
+
+</body>
+</html>
